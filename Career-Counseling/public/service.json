@@ -1,0 +1,93 @@
+[
+    {
+      "id": 1,
+      "image": "service1.png",
+      "name": "Career Guidance",
+      "category": "Career Counseling",
+      "price": "$50",
+      "counselor": "John Doe",
+      "description": "Get personalized advice to make informed career decisions."
+    },
+    {
+      "id": 2,
+      "image": "service2.png",
+      "name": "Resume Review",
+      "category": "Document Services",
+      "price": "$30",
+      "counselor": "Sarah Lee",
+      "description": "Optimize your resume to stand out to recruiters."
+    },
+    {
+      "id": 3,
+      "image": "service3.png",
+      "name": "Interview Preparation",
+      "category": "Career Counseling",
+      "price": "$70",
+      "counselor": "Michael Smith",
+      "description": "Prepare confidently for your next job interview."
+    },
+    {
+      "id": 4,
+      "image": "service4.png",
+      "name": "Skill Assessment",
+      "category": "Career Development",
+      "price": "$40",
+      "counselor": "Emily Johnson",
+      "description": "Assess your skills to discover the best career path."
+    },
+    {
+      "id": 5,
+      "image": "service5.png",
+      "name": "College Application",
+      "category": "Educational Counseling",
+      "price": "$60",
+      "counselor": "David Brown",
+      "description": "Expert guidance for a successful college application."
+    },
+    {
+      "id": 6,
+      "image": "service6.png",
+      "name": "Professional Networking",
+      "category": "Career Growth",
+      "price": "$80",
+      "counselor": "Linda Davis",
+      "description": "Build connections to enhance career opportunities."
+    },
+    {
+      "id": 7,
+      "image": "service7.png",
+      "name": "Job Placement Support",
+      "category": "Career Counseling",
+      "price": "$100",
+      "counselor": "Alex Turner",
+      "description": "Receive support in finding the right job for you."
+    },
+    {
+      "id": 8,
+      "image": "service8.png",
+      "name": "Scholarship Assistance",
+      "category": "Educational Counseling",
+      "price": "$55",
+      "counselor": "Olivia White",
+      "description": "Get help finding and applying for scholarships."
+    },
+    {
+      "id": 9,
+      "image": "service9.png",
+      "name": "Soft Skills Training",
+      "category": "Skill Development",
+      "price": "$45",
+      "counselor": "Ethan Martinez",
+      "description": "Improve your communication and teamwork skills."
+    },
+    {
+      "id": 10,
+      "image": "service10.png",
+      "name": "Entrepreneurship Coaching",
+      "category": "Business Counseling",
+      "price": "$120",
+      "counselor": "Sophia Carter",
+      "description": "Learn how to start and grow your own business."
+    }
+  ]
+  
