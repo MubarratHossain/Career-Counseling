@@ -1,29 +1,89 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import BannerImage from './background.png';  // Import the background image
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import { Navigation, Pagination } from 'swiper/modules';
+
+import BannerImage1 from './background.png';
+import BannerImage2 from './background.png';
+import BannerImage3 from './background.png';
 
 const Banner = () => {
     return (
-        <div
-            className="relative bg-cover bg-center h-64"
-            style={{ backgroundImage: `url(${BannerImage})` }}  // Set the background image using the imported variable
+        <Swiper
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{ clickable: true }}
+            loop={true}
+            className="min-h-screen"
         >
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                <div className="text-center text-white p-6">
-                    <h1 className="text-4xl font-bold mb-4">Career Counseling</h1>
-                    <p className="text-lg mb-6">Your path to a successful career starts here!</p>
-                    <Link 
-                        to="#contact" 
-                        className="bg-gradient-to-r from-[#002400] to-[#4d6e1f] text-white py-2 px-6 rounded-lg shadow-lg hover:opacity-80 transition"
-                    >
-                        Get Started
-                    </Link>
+           
+            <SwiperSlide>
+                <div
+                    className="hero min-h-screen"
+                    style={{ backgroundImage: `url(${BannerImage1})`, backgroundSize: 'cover' }}
+                >
+                    <div className="hero-overlay bg-opacity-60"></div>
+                    <div className="hero-content text-neutral-content text-center">
+                        <div className="max-w-md">
+                            <h1 className="mb-5 text-5xl font-bold">Empowering Your Career Journey</h1>
+                            <p className="mb-5">
+                                Get personalized career guidance to help you achieve your professional goals. Start your journey towards a brighter future today.
+                            </p>
+                            <button className="btn bg-gradient-to-r from-orange-300 to-orange-500 text-white hover:from-orange-400 hover:to-orange-600 shadow-md">
+                                Get Started
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </SwiperSlide>
+
+            
+            <SwiperSlide>
+                <div
+                    className="hero min-h-screen"
+                    style={{ backgroundImage: `url(${BannerImage2})`, backgroundSize: 'cover' }}
+                >
+                    <div className="hero-overlay bg-opacity-60"></div>
+                    <div className="hero-content text-neutral-content text-center">
+                        <div className="max-w-md">
+                            <h1 className="mb-5 text-5xl font-bold">Find Your Ideal Career Path</h1>
+                            <p className="mb-5">
+                                Discover careers that match your skills and interests. Our expert advice can help you make informed decisions for a successful career.
+                            </p>
+                            <button className="btn bg-gradient-to-r from-orange-300 to-orange-500 text-white hover:from-orange-400 hover:to-orange-600 shadow-md">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </SwiperSlide>
+
+            
+            <SwiperSlide>
+                <div
+                    className="hero min-h-screen"
+                    style={{ backgroundImage: `url(${BannerImage3})`, backgroundSize: 'cover' }}
+                >
+                    <div className="hero-overlay bg-opacity-60"></div>
+                    <div className="hero-content text-neutral-content text-center">
+                        <div className="max-w-md">
+                            <h1 className="mb-5 text-5xl font-bold">Unlock Your True Potential</h1>
+                            <p className="mb-5">
+                                Join our community and gain access to exclusive resources, workshops, and expert counseling to elevate your career.
+                            </p>
+                            <button className="btn bg-gradient-to-r from-orange-300 to-orange-500 text-white hover:from-orange-400 hover:to-orange-600 shadow-md">
+                                Join Us
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </SwiperSlide>
+        </Swiper>
     );
 };
 
 export default Banner;
-
 
