@@ -1,0 +1,143 @@
+[
+    {
+      "id": 1,
+      "name": "Ava Johnson",
+      "expertise": "Career Development & Leadership",
+      "experience": "10+ years",
+      "bio": "Ava specializes in career development strategies and leadership coaching, helping professionals transition to higher roles.",
+      "rating": 4.9,
+      "contact": {
+        "email": "ava.johnson@careerpro.com",
+        "phone": "+1-555-123-4567"
+      },
+      "location": "New York, USA",
+      "availability": "Monday - Friday, 9 AM - 5 PM"
+    },
+    {
+      "id": 2,
+      "name": "Liam Parker",
+      "expertise": "Tech Careers & Entrepreneurship",
+      "experience": "8 years",
+      "bio": "Liam is a tech industry expert who guides individuals in navigating the tech world and launching their own startups.",
+      "rating": 4.7,
+      "contact": {
+        "email": "liam.parker@techstart.com",
+        "phone": "+1-555-234-5678"
+      },
+      "location": "San Francisco, USA",
+      "availability": "Monday - Thursday, 10 AM - 4 PM"
+    },
+    {
+      "id": 3,
+      "name": "Sophia Martinez",
+      "expertise": "Corporate Growth & Strategy",
+      "experience": "12 years",
+      "bio": "Sophia brings a strategic approach to career counseling, focusing on corporate growth, personal branding, and executive coaching.",
+      "rating": 5.0,
+      "contact": {
+        "email": "sophia.martinez@corpcoach.com",
+        "phone": "+1-555-345-6789"
+      },
+      "location": "Los Angeles, USA",
+      "availability": "Tuesday - Friday, 8 AM - 6 PM"
+    },
+    {
+      "id": 4,
+      "name": "Ethan Lee",
+      "expertise": "Career Change & Transition",
+      "experience": "6 years",
+      "bio": "Ethan helps individuals successfully transition to new careers, providing support for mid-life career changes and job searches.",
+      "rating": 4.6,
+      "contact": {
+        "email": "ethan.lee@careerflip.com",
+        "phone": "+1-555-456-7890"
+      },
+      "location": "Chicago, USA",
+      "availability": "Monday - Friday, 9 AM - 4 PM"
+    },
+    {
+      "id": 5,
+      "name": "Mia Davis",
+      "expertise": "Personal Branding & Networking",
+      "experience": "7 years",
+      "bio": "Mia specializes in building personal brands and teaching professionals how to network effectively to advance in their careers.",
+      "rating": 4.8,
+      "contact": {
+        "email": "mia.davis@brandcoach.com",
+        "phone": "+1-555-567-8901"
+      },
+      "location": "Miami, USA",
+      "availability": "Monday - Wednesday, 10 AM - 3 PM"
+    },
+    {
+      "id": 6,
+      "name": "Noah Wilson",
+      "expertise": "Resume Writing & Interview Coaching",
+      "experience": "5 years",
+      "bio": "Noah is an expert in crafting standout resumes and preparing clients for job interviews, ensuring they shine during the hiring process.",
+      "rating": 4.5,
+      "contact": {
+        "email": "noah.wilson@resumepro.com",
+        "phone": "+1-555-678-9012"
+      },
+      "location": "Austin, USA",
+      "availability": "Tuesday - Saturday, 11 AM - 5 PM"
+    },
+    {
+      "id": 7,
+      "name": "Olivia Smith",
+      "expertise": "Soft Skills & Communication Coaching",
+      "experience": "9 years",
+      "bio": "Olivia provides coaching for soft skills development, including communication, time management, and teamwork, for professional growth.",
+      "rating": 4.9,
+      "contact": {
+        "email": "olivia.smith@softskillscoach.com",
+        "phone": "+1-555-789-0123"
+      },
+      "location": "Boston, USA",
+      "availability": "Monday - Friday, 8 AM - 5 PM"
+    },
+    {
+      "id": 8,
+      "name": "James Brown",
+      "expertise": "Financial Planning for Career Professionals",
+      "experience": "15 years",
+      "bio": "James specializes in helping professionals manage their finances while advancing in their careers, from budgeting to retirement planning.",
+      "rating": 4.7,
+      "contact": {
+        "email": "james.brown@fincoach.com",
+        "phone": "+1-555-890-1234"
+      },
+      "location": "Seattle, USA",
+      "availability": "Wednesday - Sunday, 9 AM - 3 PM"
+    },
+    {
+      "id": 9,
+      "name": "Charlotte Green",
+      "expertise": "Job Search Strategy & Coaching",
+      "experience": "10 years",
+      "bio": "Charlotte helps job seekers with tailored job search strategies, interview preparation, and finding job opportunities that match their skills.",
+      "rating": 4.8,
+      "contact": {
+        "email": "charlotte.green@jobcoach.com",
+        "phone": "+1-555-901-2345"
+      },
+      "location": "New York, USA",
+      "availability": "Monday - Friday, 9 AM - 6 PM"
+    },
+    {
+      "id": 10,
+      "name": "Jack Taylor",
+      "expertise": "Executive Coaching & Career Strategy",
+      "experience": "20 years",
+      "bio": "Jack is a seasoned executive coach who works with top professionals and organizations to enhance leadership skills and career strategy.",
+      "rating": 5.0,
+      "contact": {
+        "email": "jack.taylor@execcoach.com",
+        "phone": "+1-555-012-3456"
+      },
+      "location": "Washington, D.C., USA",
+      "availability": "Monday - Thursday, 9 AM - 4 PM"
+    }
+  ]
+  

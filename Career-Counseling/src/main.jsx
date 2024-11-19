@@ -25,11 +25,16 @@ const router = createBrowserRouter([
         path:'/',
         element:<Home></Home>,
         loader: async () => {
-          const response = await fetch("/service.json");
-          if (!response.ok) {
+          const serviceResponse = await fetch("/service.json");
+          const consultantResponse = await fetch("/consultant.json");
+          if (!serviceResponse.ok || !consultantResponse.ok) {
               throw new Error("Failed to load services data");
           }
-          return response.json();
+          const servicesData = await serviceResponse.json();
+          const consultantsData = await consultantResponse.json();
+          
+          return { services: servicesData, consultants: consultantsData };
+          
       }
       },
       {
