@@ -4,15 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import { FaRegTimesCircle, FaUserTie } from "react-icons/fa";
 import { AiOutlineSchedule } from "react-icons/ai";
 
-
 const Home = () => {
-    const { services, consultants } = useLoaderData();
+    const { services, consultants, clients } = useLoaderData();
     const [showModal, setShowModal] = useState(false);
-    const [selectedConsultant, setSelectedConsultant] = useState(null);
     const [hasModalShown, setHasModalShown] = useState(false);
     const [scrollPosition, setScrollPosition] = useState(0);
 
-   
     const bookConsultantRef = useRef(null);
 
     const handleScroll = () => {
@@ -36,7 +33,6 @@ const Home = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [scrollPosition, hasModalShown]);
 
-    
     const handleBookConsultant = () => {
         if (bookConsultantRef.current) {
             bookConsultantRef.current.scrollIntoView({ behavior: "smooth" });
@@ -57,7 +53,7 @@ const Home = () => {
                         </h3>
 
                         <button
-                            onClick={handleBookConsultant} 
+                            onClick={handleBookConsultant}
                             className="flex items-center justify-center btn bg-gradient-to-r from-orange-300 to-orange-500 text-white hover:from-orange-400 hover:to-orange-600 py-3 px-6 rounded-lg mb-4 space-x-2"
                         >
                             <FaUserTie className="text-xl" />
@@ -83,7 +79,6 @@ const Home = () => {
                 ))}
             </div>
 
-            
             <div ref={bookConsultantRef} className="py-8">
                 <h3 className="text-3xl font-bold text-center mb-6">Book a Consultant</h3>
                 <p className="text-center mb-8">
@@ -119,13 +114,39 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-
             </div>
+
+            
+            <div className="py-12 bg-gradient-to-r from-gray-100 via-white to-gray-50">
+    <h3 className="text-4xl font-extrabold text-center mb-10 text-gray-900">
+        Our Happy Clients
+    </h3>
+    <div className="overflow-hidden">
+        <div className="flex animate-marquee space-x-8 items-center">
+            {clients.map((client) => (
+                <div
+                    key={client.id}
+                    className="flex-shrink-0 bg-white shadow-xl p-6 rounded-xl flex items-center space-x-6 transform hover:scale-105 transition-transform duration-300"
+                    style={{ width: "240px" }}
+                >
+                    <img
+                        src={client.image}
+                        alt={client.name}
+                        className="w-16 h-16 rounded-full shadow-lg border-2 border-orange-300"
+                    />
+                    <div>
+                        <p className="font-bold text-gray-900 text-lg">{client.name}</p>
+                        <p className="text-sm text-gray-700 italic">{client.feedback}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</div>
+
 
         </div>
     );
 };
 
 export default Home;
-
-

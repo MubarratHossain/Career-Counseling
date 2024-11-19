@@ -1,3 +1,4 @@
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
@@ -19,52 +20,54 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement:<ErrorPage></ErrorPage>,
-    children:[
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
       {
-        path:'/',
-        element:<Home></Home>,
+        path: '/',
+        element: <Home></Home>,
         loader: async () => {
           const serviceResponse = await fetch("/service.json");
           const consultantResponse = await fetch("/consultant.json");
-          if (!serviceResponse.ok || !consultantResponse.ok) {
-              throw new Error("Failed to load services data");
+          const clientResponse = await fetch("/client.json");
+          if (!serviceResponse.ok || !consultantResponse.ok || !clientResponse.ok) {
+            throw new Error("Failed to load data");
           }
           const servicesData = await serviceResponse.json();
           const consultantsData = await consultantResponse.json();
-          
-          return { services: servicesData, consultants: consultantsData };
-          
-      }
+          const clientsData = await clientResponse.json();
+
+          return { services: servicesData, consultants: consultantsData,clients: clientsData  };
+
+        }
       },
       {
-        path:'/navbar',
-        element:<Navbar></Navbar>,
+        path: '/navbar',
+        element: <Navbar></Navbar>,
       },
       {
-        path:'/footer',
-        element:<Footer></Footer>,
+        path: '/footer',
+        element: <Footer></Footer>,
       },
       {
-        path:'/about',
-        element:<About></About>,
+        path: '/about',
+        element: <About></About>,
       },
       {
-        path:'/services',
-        element:<Services></Services>,
+        path: '/services',
+        element: <Services></Services>,
       },
       {
-        path:'/contact',
-        element:<Contact></Contact>,
+        path: '/contact',
+        element: <Contact></Contact>,
       },
       {
         path: "/details/:id",
         element: <Details />,
         loader: async ({ params }) => {
-            const res = await fetch('/service.json');
-            const data = await res.json();
-            const singleData = data.find(d => d.id === parseInt(params.id)); 
-            return singleData;
+          const res = await fetch('/service.json');
+          const data = await res.json();
+          const singleData = data.find(d => d.id === parseInt(params.id));
+          return singleData;
         }
       },
     ]
