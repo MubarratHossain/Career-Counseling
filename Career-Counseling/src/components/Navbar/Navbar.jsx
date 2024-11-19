@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar parallax bg-gradient-to-r from-[#ff7e5f] to-[#feb47b] shadow-lg">
+            <div className="navbar parallax bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 shadow-lg">
                 
                 <div className="navbar-start">
                     <div className="dropdown">

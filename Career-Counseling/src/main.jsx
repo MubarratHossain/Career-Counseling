@@ -13,6 +13,7 @@ import About from './components/About/About.jsx';
 import Home from './components/Home/Home.jsx';
 import Services from './components/Services/Services.jsx';
 import Contact from './components/Contact/Contact.jsx';
+import Details from './components/Details/Details.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +49,16 @@ const router = createBrowserRouter([
       {
         path:'/contact',
         element:<Contact></Contact>,
+      },
+      {
+        path: "/details/:id",
+        element: <Details />,
+        loader: async ({ params }) => {
+            const res = await fetch('/service.json');
+            const data = await res.json();
+            const singleData = data.find(d => d.id === parseInt(params.id)); 
+            return singleData;
+        }
       },
     ]
   },

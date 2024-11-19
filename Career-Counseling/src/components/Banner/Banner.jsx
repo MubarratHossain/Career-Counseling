@@ -10,6 +10,7 @@ import BannerImage1 from './background.png';
 import BannerImage2 from './background.png';
 import BannerImage3 from './background.png';
 
+
 const Banner = () => {
     return (
         <Swiper
@@ -74,6 +75,7 @@ const Banner = () => {
                         backgroundImage: `url(${BannerImage3})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
+                        
                     }}
                 >
                     <div className="hero-overlay bg-black bg-opacity-40"></div>
