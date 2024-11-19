@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { FaDollarSign, FaUser, FaCalendarAlt, FaStar, FaComment, FaArrowRight } from 'react-icons/fa';
+import { FaDollarSign, FaUser, FaCalendarAlt, FaStar, FaComment, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 
 const Details = () => {
     const { image, name, category, price, counselor, description, duration, rating, reviews } = useLoaderData();
 
-    
     const [comment, setComment] = useState("");
     const [commentsList, setCommentsList] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
-    
     const handleCommentSubmit = () => {
         if (comment.trim()) {
             setCommentsList([...commentsList, comment]);
             setComment(""); 
         }
+    };
+
+    const handleModalClose = () => {
+        setShowModal(false);
+    };
+
+    const handleModalOpen = () => {
+        setShowModal(true);
     };
 
     return (
@@ -60,15 +67,16 @@ const Details = () => {
                 <p className="text-lg text-gray-700">{description}</p>
             </div>
 
-           
             <div className="flex justify-center mt-8">
-                <button className="btn btn-lg bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white hover:bg-gradient-to-l hover:from-blue-500 hover:to-green-500 shadow-lg rounded-full flex items-center justify-center">
+                <button 
+                    onClick={handleModalOpen}
+                    className="btn btn-lg bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white hover:bg-gradient-to-l hover:from-blue-500 hover:to-green-500 shadow-lg rounded-full flex items-center justify-center"
+                >
                     <span className="mr-2">Select Your Dream Path</span>
                     <FaArrowRight className="ml-2 text-white text-lg" /> 
                 </button>
             </div>
 
-            
             <div className="mt-6">
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4">Leave a Comment or Feedback</h3>
                 <div className="flex flex-col">
@@ -88,7 +96,6 @@ const Details = () => {
                 </div>
             </div>
 
-            
             <div className="mt-6">
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4">Submitted Comments/Feedback</h3>
                 <ul className="list-disc pl-5 mt-2">
@@ -99,7 +106,27 @@ const Details = () => {
             </div>
 
             
-           
+            {showModal && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                    <div className="bg-white p-6 rounded-lg w-96">
+                        <h2 className="text-2xl font-semibold text-green-500 mb-4 flex items-center">
+                            <FaCheckCircle className="mr-2 text-green-500" /> Congratulations!
+                        </h2>
+                        <p className="text-lg text-gray-800 mb-4">
+                            You've successfully selected your dream path: <span className="font-bold">{name}</span>!
+                        </p>
+                        <p className="text-gray-600 mb-6">We're excited to help you on your journey. Please wait while we prepare your next steps.</p>
+                        <div className="flex justify-end">
+                            <button 
+                                onClick={handleModalClose} 
+                                className="btn btn-outline text-black"
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
