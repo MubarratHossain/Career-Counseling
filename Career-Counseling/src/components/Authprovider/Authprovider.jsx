@@ -2,44 +2,33 @@ import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.init';
 
-
 export const authContext = createContext();
 
-
 const Authprovider = ({ children }) => {
-    const googleProvider= new GoogleAuthProvider();
-    const handleSignUp =(email,password) =>{
-        createUserWithEmailAndPassword(auth,email,password)
-    };
-    const handleLogin =(email,password)=>{
-        signInWithEmailAndPassword(auth,email,password)
-    };
-    const handleLogOut =()=>{
-        signOut(auth)
-    };
-    const handleGoogleLogin=()=>{
-        signInWithPopup(auth,googleProvider);
-    };
-    const [user,setUser] = useState(null); 
+    const googleProvider = new GoogleAuthProvider();
 
-    const authInfo ={
+    const signUpUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+    const signInUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
+    const signOutUser = () => signOut(auth);
+    const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
 
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+        return () => unsubscribe(); // Cleanup subscription
+    }, []);
+
+    const authInfo = {
         user,
-        handleGoogleLogin,
-        handleLogin,
-        handleSignUp,
-        handleLogOut,
-    }
-    useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth,(currentUser)=>{
+        signUpUser,
+        signInUser,
+        signOutUser,
+        signInWithGoogle,
+    };
 
-
-            return()=>{
-                unsubscribe()
-            }
-        })
-
-    },[])
     return (
         <authContext.Provider value={authInfo}>
             {children}

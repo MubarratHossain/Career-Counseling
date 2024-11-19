@@ -96,7 +96,7 @@ const Navbar = () => {
                         <FaUser className="mr-2 text-white" />
                         Login
                     </NavLink>
-                    <NavLink to="/signup" className="flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 rounded-lg bg-[#002400] text-white hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition">
+                    <NavLink to="/register" className="flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 rounded-lg bg-[#002400] text-white hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition">
                         <FaUserPlus className="mr-2 text-white" />
                         Sign Up
                     </NavLink>
