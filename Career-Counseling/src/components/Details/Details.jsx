@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaDollarSign, FaUser, FaCalendarAlt, FaStar, FaComment, FaArrowRight } from 'react-icons/fa';
 
-
-
 const Details = () => {
-
     const { image, name, category, price, counselor, description, duration, rating, reviews } = useLoaderData();
+
+    
+    const [comment, setComment] = useState("");
+    const [commentsList, setCommentsList] = useState([]);
+
+    
+    const handleCommentSubmit = () => {
+        if (comment.trim()) {
+            setCommentsList([...commentsList, comment]);
+            setComment(""); 
+        }
+    };
 
     return (
         <div className="max-w-4xl mx-auto p-6 bg-gradient-to-r from-white via-orange-100 to-orange-300 shadow-lg rounded-lg">
@@ -35,12 +44,10 @@ const Details = () => {
                     </div>
                     <p className="text-lg text-gray-700 mb-6">{description}</p>
 
-
                     <div className="flex items-center mb-4">
                         <FaStar className="inline-block mr-1 text-yellow-400" />
                         <span className="ml-2 text-lg text-gray-600">{rating} / 5</span>
                     </div>
-
 
                     <div className="flex items-center text-lg text-gray-600">
                         <FaComment className="mr-2 text-gray-500" />
@@ -52,14 +59,48 @@ const Details = () => {
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4">About This Service</h3>
                 <p className="text-lg text-gray-700">{description}</p>
             </div>
+
+           
             <div className="flex justify-center mt-8">
                 <button className="btn btn-lg bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white hover:bg-gradient-to-l hover:from-blue-500 hover:to-green-500 shadow-lg rounded-full flex items-center justify-center">
                     <span className="mr-2">Select Your Dream Path</span>
                     <FaArrowRight className="ml-2 text-white text-lg" /> 
                 </button>
             </div>
-        </div>
 
+            
+            <div className="mt-6">
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Leave a Comment or Feedback</h3>
+                <div className="flex flex-col">
+                    <input 
+                        type="text" 
+                        placeholder="Write your comment or feedback" 
+                        className="input input-bordered w-full mb-2"
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)} 
+                    />
+                    <button 
+                        onClick={handleCommentSubmit} 
+                        className="btn btn-outline text-black w-full"
+                    >
+                        Submit Comment/Feedback
+                    </button>
+                </div>
+            </div>
+
+            
+            <div className="mt-6">
+                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Submitted Comments/Feedback</h3>
+                <ul className="list-disc pl-5 mt-2">
+                    {commentsList.map((comment, index) => (
+                        <li key={index} className="text-gray-700">{comment}</li>
+                    ))}
+                </ul>
+            </div>
+
+            
+           
+        </div>
     );
 };
 
