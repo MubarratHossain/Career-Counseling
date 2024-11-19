@@ -44,10 +44,11 @@ const Home = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            
             {showModal && (
-                <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
-                    <div className="bg-gradient-to-r from-white via-orange-100 to-orange-300 p-8 rounded-lg shadow-xl max-w-sm w-full text-center animate-slide-fade-in">
+                <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50 px-4">
+                    <div className="bg-gradient-to-r from-white via-orange-100 to-orange-300 p-6 rounded-lg shadow-xl w-full max-w-md text-center">
                         <h3 className="text-2xl font-bold mb-6 text-gray-800">
                             Not Sure Which Service is Right for You?
                         </h3>
@@ -71,17 +72,18 @@ const Home = () => {
                 </div>
             )}
 
-            <h3 className="text-3xl font-bold text-center mb-8 animate-fade-in">Services</h3>
-
+            
+            <h3 className="text-3xl font-bold text-center mb-8">Services</h3>
             <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {services.map((service) => (
                     <Services key={service.id} service={service} />
                 ))}
             </div>
 
-            <div ref={bookConsultantRef} className="py-8">
+            
+            <div ref={bookConsultantRef} className="py-12">
                 <h3 className="text-3xl font-bold text-center mb-6">Book a Consultant</h3>
-                <p className="text-center mb-8">
+                <p className="text-center mb-8 text-gray-600">
                     Choose a consultant and book a session with them.
                 </p>
 
@@ -97,13 +99,15 @@ const Home = () => {
                             <img
                                 src={consultant.image}
                                 alt={consultant.name}
-                                className="w-24 h-24 rounded-full mb-4 border-4 border-white shadow-lg"
+                                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mb-4 border-4 border-white shadow-lg"
                             />
-                            <h4 className="text-xl font-bold mb-2 text-gray-800 flex items-center space-x-2">
+                            <h4 className="text-lg sm:text-xl font-bold mb-2 text-gray-800 flex items-center space-x-2">
                                 <span>{consultant.name}</span>
                                 <FaUserTie className="text-orange-500" />
                             </h4>
-                            <p className="text-gray-700 mb-4">{consultant.expertise}</p>
+                            <p className="text-gray-700 text-sm sm:text-base mb-4">
+                                {consultant.expertise}
+                            </p>
                             <button
                                 className="flex items-center justify-center bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-orange-500 hover:to-pink-600 transition-all duration-200 space-x-2 shadow-md"
                                 onClick={() => alert(`Booked with ${consultant.name}`)}
@@ -116,35 +120,37 @@ const Home = () => {
                 </div>
             </div>
 
-            
-            <div className="py-12 bg-gradient-to-r from-gray-100 via-white to-gray-50">
-    <h3 className="text-4xl font-extrabold text-center mb-10 text-gray-900">
-        Our Happy Clients
-    </h3>
-    <div className="overflow-hidden">
-        <div className="flex animate-marquee space-x-8 items-center">
-            {clients.map((client) => (
-                <div
-                    key={client.id}
-                    className="flex-shrink-0 bg-white shadow-xl p-6 rounded-xl flex items-center space-x-6 transform hover:scale-105 transition-transform duration-300"
-                    style={{ width: "240px" }}
-                >
-                    <img
-                        src={client.image}
-                        alt={client.name}
-                        className="w-16 h-16 rounded-full shadow-lg border-2 border-orange-300"
-                    />
-                    <div>
-                        <p className="font-bold text-gray-900 text-lg">{client.name}</p>
-                        <p className="text-sm text-gray-700 italic">{client.feedback}</p>
+            {/* Happy Clients Section */}
+            <div className="py-12 bg-gray-50">
+                <h3 className="text-4xl font-extrabold text-center mb-10 text-gray-900">
+                    Our Happy Clients
+                </h3>
+                <div className="overflow-hidden">
+                    <div className="flex animate-marquee space-x-8 items-center">
+                        {clients.map((client) => (
+                            <div
+                                key={client.id}
+                                className="flex-shrink-0 bg-white shadow-lg p-6 rounded-lg flex items-center space-x-6 transform hover:scale-105 transition-transform duration-300"
+                                style={{ width: "240px" }}
+                            >
+                                <img
+                                    src={client.image}
+                                    alt={client.name}
+                                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-md border-2 border-orange-300"
+                                />
+                                <div>
+                                    <p className="font-bold text-gray-900 text-base sm:text-lg">
+                                        {client.name}
+                                    </p>
+                                    <p className="text-sm sm:text-base text-gray-700 italic">
+                                        {client.feedback}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
-            ))}
-        </div>
-    </div>
-</div>
-
-
+            </div>
         </div>
     );
 };
