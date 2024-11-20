@@ -3,16 +3,18 @@ import { useLoaderData } from 'react-router-dom';
 import { FaDollarSign, FaUser, FaCalendarAlt, FaStar, FaComment, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 
 const Details = () => {
-    const { image, name, category, price, counselor, description, duration, rating, reviews } = useLoaderData();
-
+    const service = useLoaderData();
     const [comment, setComment] = useState("");
     const [commentsList, setCommentsList] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
+    
+    const { name, category, price, counselor, duration, description, rating, reviews, image } = service;
+
     const handleCommentSubmit = () => {
         if (comment.trim()) {
             setCommentsList([...commentsList, comment]);
-            setComment(""); 
+            setComment("");
         }
     };
 
@@ -29,8 +31,8 @@ const Details = () => {
             <div className="flex flex-col lg:flex-row">
                 <div className="w-full lg:w-1/3">
                     <img
-                        src={image}
-                        alt={name}
+                        src={image}  
+                        alt={name}    
                         className="w-full h-96 object-cover rounded-lg shadow-md"
                     />
                 </div>
@@ -62,6 +64,7 @@ const Details = () => {
                     </div>
                 </div>
             </div>
+
             <div className="mt-6">
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4">About This Service</h3>
                 <p className="text-lg text-gray-700">{description}</p>
@@ -105,7 +108,6 @@ const Details = () => {
                 </ul>
             </div>
 
-            
             {showModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
                     <div className="bg-white p-6 rounded-lg w-96">

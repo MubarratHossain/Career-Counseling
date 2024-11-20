@@ -1,16 +1,18 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import Banner from "../Banner/Banner";
 
 const Root = () => {
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen ">
             
             <Navbar />
+            
 
            
-            <div className="flex-grow mt-16">
-                <Outlet />
+            <div >
+                <Outlet></Outlet>
             </div>
 
            

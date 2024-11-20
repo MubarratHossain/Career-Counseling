@@ -1,8 +1,9 @@
 import { useLoaderData } from "react-router-dom";
-import Services from "../Services/Services";
 import { useState, useEffect, useRef } from "react";
 import { FaRegTimesCircle, FaUserTie } from "react-icons/fa";
 import { AiOutlineSchedule } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import Banner from "../Banner/Banner";
 
 const Home = () => {
     const { services, consultants, clients } = useLoaderData();
@@ -45,6 +46,7 @@ const Home = () => {
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <Banner></Banner>
             
             {showModal && (
                 <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50 px-4">
@@ -72,15 +74,28 @@ const Home = () => {
                 </div>
             )}
 
-            
-            <h3 className="text-3xl font-bold text-center mb-8">Services</h3>
-            <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <h3 className="text-3xl font-bold text-center mt-8  animate-shake text-white">Services</h3>
+            <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-12">
                 {services.map((service) => (
-                    <Services key={service.id} service={service} />
+                    <div key={service.id} className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                        <img
+                            src={service.image}
+                            alt={service.name}
+                            className="w-full h-40 object-cover rounded-lg mb-4"
+                        />
+                        <h4 className="text-xl font-bold mb-2 text-gray-800">{service.name}</h4>
+                        <p className="text-gray-700 text-sm mb-4">{service.description}</p>
+
+                        <Link
+                            to={`/details/${service.id}`}
+                            className="inline-block bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-orange-500 hover:to-pink-600 transition-all duration-200 shadow-md"
+                        >
+                            Learn More
+                        </Link>
+                    </div>
                 ))}
             </div>
 
-            
             <div ref={bookConsultantRef} className="py-12">
                 <h3 className="text-3xl font-bold text-center mb-6">Book a Consultant</h3>
                 <p className="text-center mb-8 text-gray-600">

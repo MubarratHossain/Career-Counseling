@@ -11,9 +11,9 @@ import Footer from './components/Footer/Footer.jsx';
 import Root from './components/Root/Root.jsx';
 import About from './components/About/About.jsx';
 import Home from './components/Home/Home.jsx';
-import Services from './components/Services/Services.jsx';
+
 import Contact from './components/Contact/Contact.jsx';
-import Details from './components/Details/Details.jsx';
+
 import ErrorPage from './components/Errorpage/Errorpage.jsx';
 import Authprovider from './components/Authprovider/Authprovider.jsx';
 import Login from './components/Login/Login.jsx';
@@ -21,6 +21,9 @@ import Register from './components/Register/Register.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import MyProfile from './components/MyProfile/MyProfile.jsx';
+import Details from './components/Details/Details.jsx';
+import Banner from './components/Banner/Banner.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -57,7 +60,8 @@ const router = createBrowserRouter([
       { path: '/navbar', element: <Navbar></Navbar> },
       { path: '/footer', element: <Footer></Footer> },
       { path: '/about', element: <About></About> },
-      { path: '/services', element: <Services></Services> },
+      { path: '/banner', element: <Banner></Banner> },
+     
       { path: '/my-profile', element: <MyProfile></MyProfile> },
       { path: '/contact', element: <Contact></Contact> },
       { path: '/login', element: <Login></Login> },
@@ -65,15 +69,20 @@ const router = createBrowserRouter([
 
       {
         path: "/details/:id",
-        element: <Details />,
-        loader: async ({ params }) => {
-          const res = await fetch('/service.json');
-          const data = await res.json();
-          const singleData = data.find(d => d.id === params.id);
-          if (!singleData) throw new Error("Service not found");
-          return singleData;
+        element: <Details></Details>,
+        loader:async({params})=>{
+          const res =await fetch('../public/service.json');
+          const data =await res.json();
+          const service =data.find(service=>String(service.id) === String(params.id));
+          console.log('Fetched service:', service);
+          if (!service) throw new Error("Service not found");
+          return service;
+        },
+        future: {
+          v7_skipActionErrorRevalidation: true // Add this flag to opt-in to the v7 behavior
         }
       },
+      
     ]
   },
 ]);

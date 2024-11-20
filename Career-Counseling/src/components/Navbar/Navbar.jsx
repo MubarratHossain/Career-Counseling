@@ -21,7 +21,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar parallax bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 shadow-lg">
+            <div className="navbar parallax bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 shadow-lg">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -145,7 +145,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {isHomePage && <Banner />}
+           
         </div>
     );
 };

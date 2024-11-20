@@ -13,7 +13,16 @@ export default {
         'shake': 'shake 0.5s infinite',
         'marquee': 'marquee 15s linear infinite',
       },
+      colors: {
+        darkblue: '#003366', 
+        darkerblue: '#001f33', 
+      },
       keyframes: {
+        backgroundAnimation: {
+          '0%': { backgroundColor: '#003366' },
+          '50%': { backgroundColor: '#001f33' },
+          '100%': { backgroundColor: '#003366' },
+        },
         fadeIn: {
           '0%': { opacity: 0, transform: 'translateY(-10px)' },
           '100%': { opacity: 1, transform: 'translateY(0)' },
