@@ -1,13 +1,15 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-
-import { FiEye, FiEyeOff } from "react-icons/fi"; 
+import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { authContext } from "../Authprovider/Authprovider";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
     const { signUpUser, signInWithGoogle } = useContext(authContext);
-
-    const [showPassword, setShowPassword] = useState(false); 
+    const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -19,7 +21,7 @@ const Register = () => {
         const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
         if (!passwordValidation.test(password)) {
-            alert(
+            toast.error(
                 "Password must be at least 6 characters long and include both uppercase and lowercase letters."
             );
             return;
@@ -28,31 +30,39 @@ const Register = () => {
         signUpUser(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log("User registered:", user);
-                alert(`Welcome, ${name}! Your account has been created.`);
-                e.target.reset(); 
+                return updateProfile(user, { displayName: name, photoURL })
+                    .then(() => {
+                        toast.success(`Welcome, ${name}! Your account has been created.`);
+                        e.target.reset();
+
+                        
+                        setTimeout(() => {
+                            navigate("/login");
+                        }, 4000);
+                    })
+                    .catch((error) => {
+                        toast.error("Failed to update profile: " + error.message);
+                    });
             })
             .catch((error) => {
-                console.error("Registration error:", error.message);
-                alert("Registration failed: " + error.message);
+                toast.error("Registration failed: " + error.message);
             });
     };
 
     const handleGoogleLogin = () => {
         signInWithGoogle()
             .then((result) => {
-                console.log("Google sign-in:", result.user);
-                alert("Signed in with Google successfully!");
+                toast.success("Signed in with Google successfully!");
             })
             .catch((error) => {
-                console.error("Google sign-in error:", error.message);
-                alert("Google Login failed: " + error.message);
+                toast.error("Google Login failed: " + error.message);
             });
     };
 
     return (
         <div className="hero bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 min-h-screen flex items-center justify-center">
             <div className="hero-content flex-col max-w-md w-full bg-white rounded-lg shadow-lg p-8">
+                <ToastContainer position="top-center" autoClose={2000} />
                 <div className="text-center mb-6">
                     <h1 className="text-4xl font-bold text-gray-800">Create an Account</h1>
                     <p className="text-gray-600">Join us today and start exploring!</p>
@@ -100,7 +110,7 @@ const Register = () => {
                                 <span className="label-text text-gray-700 font-medium">Password</span>
                             </label>
                             <input
-                                type={showPassword ? "text" : "password"} 
+                                type={showPassword ? "text" : "password"}
                                 name="password"
                                 placeholder="Your password"
                                 className="input input-bordered focus:outline-none focus:ring focus:ring-blue-300 pr-10"
@@ -108,13 +118,9 @@ const Register = () => {
                             />
                             <span
                                 className="absolute top-11 right-4 cursor-pointer text-gray-500 hover:text-gray-700"
-                                onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+                                onClick={() => setShowPassword(!showPassword)}
                             >
-                                {showPassword ? (
-                                    <FiEyeOff size={24} />
-                                ) : (
-                                    <FiEye size={24} />
-                                )}
+                                {showPassword ? <FiEyeOff size={24} /> : <FiEye size={24} />}
                             </span>
                         </div>
                         <div className="form-control">
@@ -123,27 +129,18 @@ const Register = () => {
                             </button>
                         </div>
                     </form>
-                    <p className="text-center text-gray-600 mt-4">
-                        Already have an account?{" "}
-                        <Link to="/login">
-                            <button className="bg-green-500 text-white font-semibold py-1 px-3 rounded-md shadow-md hover:bg-green-600 transition">
-                                Log In
-                            </button>
-                        </Link>
-                    </p>
-                    <div className="mt-4">
-                        <button
-                            onClick={handleGoogleLogin}
-                            className="flex items-center bg-white border border-gray-300 rounded-lg px-4 py-2 hover:bg-gray-100 transition duration-200 shadow-md w-full justify-center"
-                        >
-                            <img
-                                src="https://i.postimg.cc/0QJVDHzQ/image8-2.webp"
-                                alt="Google Logo"
-                                className="h-6 mr-3"
-                            />
-                            <span className="text-gray-600 font-medium">Sign up with Google</span>
-                        </button>
-                    </div>
+                    <div className="divider text-gray-400">OR</div>
+                    <button
+                        onClick={handleGoogleLogin}
+                        className="flex items-center justify-center bg-white border border-gray-300 rounded-lg px-4 py-2 w-full hover:bg-gray-100 transition shadow-sm"
+                    >
+                        <img
+                            src="https://i.postimg.cc/0QJVDHzQ/image8-2.webp"
+                            alt="Google Logo"
+                            className="h-6 mr-3"
+                        />
+                        <span className="text-gray-600 font-medium">Sign in with Google</span>
+                    </button>
                 </div>
             </div>
         </div>
