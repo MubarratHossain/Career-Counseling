@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { FaHome, FaInfoCircle, FaBriefcase, FaPhoneAlt, FaUser, FaUserPlus } from 'react-icons/fa'; 
 import { NavLink, useLocation } from 'react-router-dom'; 
+
 import Banner from '../Banner/Banner';
+import { authContext } from '../Authprovider/Authprovider';
 
 const Navbar = () => {
+    const { user, signOutUser } = useContext(authContext);
     const location = useLocation();
     const isHomePage = location.pathname === '/'; 
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -12,10 +15,13 @@ const Navbar = () => {
         setDropdownOpen(!dropdownOpen);
     };
 
+    const handleSignOut = () => {
+        signOutUser();
+    };
+
     return (
         <div>
             <div className="navbar parallax bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 shadow-lg">
-                
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -92,15 +98,35 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-end flex items-center space-x-4">
-                    <NavLink to="/login" className="flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 rounded-lg bg-[#002400] text-white hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition">
-                        <FaUser className="mr-2 text-white" />
-                        Login
-                    </NavLink>
-                    <NavLink to="/register" className="flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 rounded-lg bg-[#002400] text-white hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition">
-                        <FaUserPlus className="mr-2 text-white" />
-                        Sign Up
-                    </NavLink>
-
+                    {!user ? (
+                        <>
+                            <NavLink to="/login" className="flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 rounded-lg bg-[#002400] text-white hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition">
+                                <FaUser className="mr-2 text-white" />
+                                Login
+                            </NavLink>
+                            <NavLink to="/register" className="flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 rounded-lg bg-[#002400] text-white hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition">
+                                <FaUserPlus className="mr-2 text-white" />
+                                Sign Up
+                            </NavLink>
+                        </>
+                    ) : (
+                        <div className="flex items-center space-x-4">
+                            <div className="relative">
+                                <img
+                                    src={user.photoURL || '/default-avatar.png'}
+                                    alt="User Avatar"
+                                    className="w-10 h-10 rounded-full cursor-pointer"
+                                    title={user.displayName || 'User'}
+                                />
+                            </div>
+                            <button
+                                className="bg-[#002400] text-white py-2 px-4 rounded-lg hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition"
+                                onClick={handleSignOut}
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    )}
                     <div className="lg:hidden relative">
                         <button
                             className="flex items-center space-x-2 text-xs lg:text-sm bg-[#002400] text-white py-2 px-4 rounded-lg hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition"
@@ -118,7 +144,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            
+
             {isHomePage && <Banner />}
         </div>
     );
