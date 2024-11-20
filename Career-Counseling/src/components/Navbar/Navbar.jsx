@@ -46,7 +46,7 @@ const Navbar = () => {
                         >
                             <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="/about">About</NavLink></li>
-                            <li><NavLink to="/services">Services</NavLink></li>
+                            <li><NavLink to="/my-profile">My-Profile</NavLink></li>
                             <li><NavLink to="/contact">Contact</NavLink></li>
                         </ul>
                     </div>
@@ -78,11 +78,11 @@ const Navbar = () => {
                         </li>
                         <li className="mr-4">
                             <NavLink
-                                to="/services"
+                                to="/my-profile"
                                 className="text-base text-white hover:text-white hover:bg-[#002400] p-2 rounded-lg"
                             >
                                 <FaBriefcase className="inline mr-2 text-white" />
-                                Services
+                                My-Profile
                             </NavLink>
                         </li>
                         <li className="mr-4">
