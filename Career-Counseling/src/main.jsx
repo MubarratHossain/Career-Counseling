@@ -23,6 +23,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import MyProfile from './components/MyProfile/MyProfile.jsx';
 import Details from './components/Details/Details.jsx';
 import Banner from './components/Banner/Banner.jsx';
+import PrivateRoute from './components/Privateroute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
 
       {
         path: "/details/:id",
-        element: <Details></Details>,
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
         loader:async({params})=>{
           const res =await fetch('../public/service.json');
           const data =await res.json();

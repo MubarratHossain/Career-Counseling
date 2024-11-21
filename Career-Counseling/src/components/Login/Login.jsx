@@ -39,7 +39,7 @@ const Login = () => {
     };
 
     return (
-        <div className="hero bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 min-h-screen flex items-center justify-center">
+        <div className="hero bg-gray-100 min-h-screen flex items-center justify-center">
             <div className="hero-content flex-col max-w-md w-full bg-white rounded-lg shadow-lg p-8">
                 <div className="text-center mb-6">
                     <h1 className="text-4xl font-bold text-gray-800">Welcome Back!</h1>
@@ -77,7 +77,7 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mb-4">
-                            <button className="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-semibold w-full">
+                            <button className="btn bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md  text-white font-semibold w-full">
                                 Login
                             </button>
                         </div>
@@ -85,7 +85,7 @@ const Login = () => {
                     <p className="text-center text-gray-600">
                         New to this website?{" "}
                         <Link to="/register">
-                            <button className="bg-blue-500 text-white font-semibold py-1 px-3 rounded-md shadow-md hover:bg-blue-600 transition">
+                            <button className=" text-white font-semibold py-1 px-3 rounded-md bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md  transition">
                                 Register
                             </button>
                         </Link>

@@ -27,7 +27,7 @@ const Details = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto p-6 bg-gradient-to-r from-white via-orange-100 to-orange-300 shadow-lg rounded-lg">
+        <div className="max-w-5xl mx-auto mt-4 mb-4 p-6 bg-gradient-to-r from-white via-orange-100 to-white shadow-lg rounded-lg">
             <div className="flex flex-col lg:flex-row">
                 <div className="w-full lg:w-1/3">
                     <img

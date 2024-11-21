@@ -45,7 +45,7 @@ const Home = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-8  mt-[120px] rounded-lg">
             <Banner></Banner>
             
             {showModal && (
@@ -74,7 +74,7 @@ const Home = () => {
                 </div>
             )}
 
-            <h3 className="text-3xl font-bold text-center mt-8  animate-shake text-white">Services</h3>
+            <h3 className="text-3xl font-bold text-center mt-8  animate-shake text-black">Services</h3>
             <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-12">
                 {services.map((service) => (
                     <div key={service.id} className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">

@@ -60,7 +60,7 @@ const Register = () => {
     };
 
     return (
-        <div className="hero bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 min-h-screen flex items-center justify-center">
+        <div className="hero bg-gray-100 min-h-screen flex items-center justify-center">
             <div className="hero-content flex-col max-w-md w-full bg-white rounded-lg shadow-lg p-8">
                 <ToastContainer position="top-center" autoClose={2000} />
                 <div className="text-center mb-6">
@@ -124,7 +124,7 @@ const Register = () => {
                             </span>
                         </div>
                         <div className="form-control">
-                            <button className="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-semibold w-full">
+                            <button className="btn bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md  text-white font-semibold w-full">
                                 Register
                             </button>
                         </div>

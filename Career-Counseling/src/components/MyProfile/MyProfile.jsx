@@ -19,7 +19,7 @@ const MyProfile = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-6 flex flex-col items-center">
+        <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
             <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-8">
                 <h1 className="text-4xl font-bold text-center text-gray-800">My Profile</h1>
                 <div className="mt-6 bg-gray-100 p-6 rounded-lg shadow-md">
@@ -28,19 +28,19 @@ const MyProfile = () => {
                             <img
                                 src={user.photoURL}
                                 alt="Profile"
-                                className="w-32 h-32 rounded-full border-4 border-purple-500"
+                                className="w-32 h-32 rounded-full border-4 "
                             />
                         ) : (
-                            <div className="w-32 h-32 rounded-full bg-gray-300 flex items-center justify-center border-4 border-purple-500">
+                            <div className="w-32 h-32 rounded-full bg-gray-300 flex items-center justify-center border-4 border-orange-400">
                                 <FaUserEdit className="text-3xl text-gray-500" />
                             </div>
                         )}
                         <h2 className="text-xl font-semibold mt-4 flex items-center gap-2 text-gray-800">
-                            <FaUserEdit className="text-purple-500" />
+                            <FaUserEdit className="text-orange-500" />
                             {user?.displayName || "Your Name"}
                         </h2>
                         <p className="text-lg text-gray-600 mt-2 flex items-center gap-2">
-                            <FaEnvelope className="text-purple-500" />
+                            <FaEnvelope className="text-orange-500" />
                             {user?.email || "Your Email"}
                         </p>
                     </div>
@@ -93,7 +93,7 @@ const MyProfile = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-purple-500 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-purple-600 transition"
+                        className="w-full bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 text-white py-3 rounded-lg font-semibold shadow-md hover:bg-purple-600 transition"
                     >
                         Save Changes
                     </button>

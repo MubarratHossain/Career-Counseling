@@ -21,7 +21,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar parallax bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 shadow-lg">
+            <div className="navbar  bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 shadow-lg mt-2 rounded-lg">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -100,11 +100,11 @@ const Navbar = () => {
                 <div className="navbar-end flex items-center space-x-4">
                     {!user ? (
                         <>
-                            <NavLink to="/login" className="flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 rounded-lg bg-[#002400] text-white hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition">
+                            <NavLink to="/login" className="flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md rounded-lg text-white ">
                                 <FaUser className="mr-2 text-white" />
                                 Login
                             </NavLink>
-                            <NavLink to="/register" className="flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 rounded-lg bg-[#002400] text-white hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition">
+                            <NavLink to="/register" className="flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 rounded-lg bg-gradient-to-r from-orange-300 to-orange-500 text-white hover:from-orange-400 hover:to-orange-600 shadow-md ">
                                 <FaUserPlus className="mr-2 text-white" />
                                 Sign Up
                             </NavLink>
@@ -120,7 +120,7 @@ const Navbar = () => {
                                 />
                             </div>
                             <button
-                                className="bg-[#002400] text-white py-2 px-4 rounded-lg hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition"
+                                className="bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md  text-white py-2 px-4 rounded-lg  transition"
                                 onClick={handleSignOut}
                             >
                                 Logout
@@ -129,7 +129,7 @@ const Navbar = () => {
                     )}
                     <div className="lg:hidden relative">
                         <button
-                            className="flex items-center space-x-2 text-xs lg:text-sm bg-[#002400] text-white py-2 px-4 rounded-lg hover:bg-gradient-to-r hover:from-[#002400] hover:to-[#4d6e1f] transition"
+                            className="flex items-center space-x-2 text-xs lg:text-sm  text-white py-2 px-4 rounded-lg bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md  transition"
                             onClick={toggleDropdown}
                         >
                             <FaUser className="mr-2 text-white" />
@@ -137,8 +137,8 @@ const Navbar = () => {
                         </button>
                         {dropdownOpen && (
                             <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg">
-                                <NavLink to="/login" className="block px-4 py-2 text-sm text-gray-700">Login</NavLink>
-                                <NavLink to="/signup" className="block px-4 py-2 text-sm text-gray-700">Sign Up</NavLink>
+                                <NavLink to="/login" className="block px-4 py-2 text-sm bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md ">Login</NavLink>
+                                <NavLink to="/signup" className="block px-4 py-2 text-sm bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md ">Sign Up</NavLink>
                             </div>
                         )}
                     </div>

@@ -41,7 +41,7 @@ const Footer = () => {
                   placeholder="username@site.com"
                   className="input input-bordered flex-grow"
                 />
-                <button className="btn btn-primary">Subscribe</button>
+                <button className="btn bg-gradient-to-r from-orange-400 via-red-500 to-pink-500">Subscribe</button>
               </div>
             </fieldset>
           </form>
