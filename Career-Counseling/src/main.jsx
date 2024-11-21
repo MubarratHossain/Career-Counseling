@@ -24,6 +24,7 @@ import MyProfile from './components/MyProfile/MyProfile.jsx';
 import Details from './components/Details/Details.jsx';
 import Banner from './components/Banner/Banner.jsx';
 import PrivateRoute from './components/Privateroute/PrivateRoute.jsx';
+import BookNow from './components/BookNow/BookNow.jsx';
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,17 @@ const router = createBrowserRouter([
       { path: '/contact', element: <Contact></Contact> },
       { path: '/login', element: <Login></Login> },
       { path: '/register', element: <Register></Register> },
+      {
+         path:"/bookNow/:id",
+         element:<PrivateRoute><BookNow></BookNow></PrivateRoute>,
+         loader:async({params}) =>{
+          const res =await fetch('../public/consultant.json');
+          const data =await res.json();
+          const consultant =data.find(consultant=>String(consultant.id) === String(params.id));
+          if (!consultant) throw new Error("Consultant not found");
+          return consultant;
+         }
+      },
 
       {
         path: "/details/:id",
