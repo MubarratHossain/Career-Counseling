@@ -13,6 +13,7 @@ const Authprovider = ({ children }) => {
     const signInWithGoogle = () => signInWithPopup(auth, googleProvider);
 
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
    
     const updateUserProfile = async (displayName, photoURL) => {
@@ -31,6 +32,7 @@ const Authprovider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            setLoading(false);
         });
         return () => unsubscribe(); 
     }, []);
@@ -42,7 +44,10 @@ const Authprovider = ({ children }) => {
         signOutUser,
         signInWithGoogle,
         updateUserProfile,  
-    };
+    }; 
+    if (loading) {
+        return <span className="loading loading-ring loading-lg"></span>;  // You can show a spinner or loading state here
+    }
 
     return (
         <authContext.Provider value={authInfo}>

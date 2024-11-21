@@ -3,7 +3,11 @@ import { Navigate } from 'react-router-dom';
 import { authContext } from '../Authprovider/Authprovider';
 
 const PrivateRoute = ({ children }) => {
-    const { user } = useContext(authContext);
+    const { user,loading } = useContext(authContext);
+
+    if (loading) {
+        return <span className="loading loading-ring loading-lg"></span> ; 
+    }
 
     if (!user) {
         return <Navigate to="/login" replace />;  
