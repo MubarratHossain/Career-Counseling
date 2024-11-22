@@ -10,6 +10,17 @@ const MyProfile = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!displayName.trim()) {
+            toast.error("Please enter a name.");
+            return;
+        }
+
+        if (displayName === user?.displayName && photoURL === user?.photoURL) {
+            toast.info("No changes detected.");
+            return;
+        }
+
         try {
             await updateUserProfile(displayName, photoURL);
             toast.success("Profile updated successfully!");
@@ -28,7 +39,7 @@ const MyProfile = () => {
                             <img
                                 src={user.photoURL}
                                 alt="Profile"
-                                className="w-32 h-32 rounded-full border-4 "
+                                className="w-32 h-32 rounded-full border-4"
                             />
                         ) : (
                             <div className="w-32 h-32 rounded-full bg-gray-300 flex items-center justify-center border-4 border-orange-400">
@@ -71,25 +82,19 @@ const MyProfile = () => {
                             htmlFor="photoURL"
                             className="block text-sm font-medium text-gray-700"
                         >
-                            Profile Photo
+                            Profile Photo URL
                         </label>
                         <div className="relative mt-1">
                             <input
-                                type="file"
+                                type="text"
                                 id="photoURL"
-                                onChange={(e) => {
-                                    const file = e.target.files[0];
-                                    if (file) {
-                                        const reader = new FileReader();
-                                        reader.onloadend = () => setPhotoURL(reader.result);
-                                        reader.readAsDataURL(file);
-                                    }
-                                }}
+                                value={photoURL}
+                                onChange={(e) => setPhotoURL(e.target.value)}
                                 className="w-full p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                placeholder="Enter photo URL"
                             />
                             <FaCamera className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
                         </div>
-                      
                     </div>
                     <button
                         type="submit"

@@ -65,7 +65,7 @@ const router = createBrowserRouter([
       { path: '/about', element: <About></About> },
       { path: '/banner', element: <Banner></Banner> },
      
-      { path: '/my-profile', element: <MyProfile></MyProfile> },
+      { path: '/my-profile', element: <PrivateRoute><MyProfile></MyProfile> </PrivateRoute>},
       { path: '/contact', element: <Contact></Contact> },
       { path: '/login', element: <Login></Login> },
       { path: '/register', element: <Register></Register> },
@@ -96,7 +96,7 @@ const router = createBrowserRouter([
           return service;
         },
         future: {
-          v7_skipActionErrorRevalidation: true // Add this flag to opt-in to the v7 behavior
+          v7_skipActionErrorRevalidation: true 
         }
       },
       

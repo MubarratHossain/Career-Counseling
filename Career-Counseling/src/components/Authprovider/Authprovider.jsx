@@ -17,15 +17,10 @@ const Authprovider = ({ children }) => {
 
    
     const updateUserProfile = async (displayName, photoURL) => {
-        try {
-            
-            const updatedUser = { ...user, displayName, photoURL };
-            
-            
-            setUser(updatedUser); 
-        } catch (error) {
-            throw new Error("Profile update failed");
-        }
+      if (auth.currentUser) {
+        await updateProfile(auth.currentUser, { displayName, photoURL });
+        setUser({ ...auth.currentUser, displayName, photoURL });
+      }
     };
     
 

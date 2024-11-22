@@ -44,7 +44,7 @@ const Navbar = () => {
                         >
                             <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="/about">About</NavLink></li>
-                            {user && <li><NavLink to="/my-profile">My-Profile</NavLink></li>}
+                            {user && <li><NavLink to="/my-profile">My Profile</NavLink></li>}
                             <li><NavLink to="/contact">Contact</NavLink></li>
                         </ul>
                     </div>
@@ -81,7 +81,7 @@ const Navbar = () => {
                                     className="text-base text-white hover:text-white hover:bg-[#002400] p-2 rounded-lg"
                                 >
                                     <FaBriefcase className="inline mr-2 text-white" />
-                                    My-Profile
+                                    My Profile
                                 </NavLink>
                             </li>
                         )}
@@ -96,6 +96,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
+
                 <div className="navbar-end flex items-center space-x-4">
                     {!user ? (
                         <>
@@ -134,8 +135,6 @@ const Navbar = () => {
                         </div>
                     )}
                 </div>
-
-
             </div>
         </div>
     );

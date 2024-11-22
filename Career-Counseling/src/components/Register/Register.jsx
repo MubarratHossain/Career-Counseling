@@ -9,9 +9,10 @@ import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
     const { signUpUser, signInWithGoogle } = useContext(authContext);
     const [showPassword, setShowPassword] = useState(false);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const email = e.target.email.value;
@@ -27,26 +28,22 @@ const Register = () => {
             return;
         }
 
-        signUpUser(email, password)
-            .then((result) => {
-                const user = result.user;
-                return updateProfile(user, { displayName: name, photoURL })
-                    .then(() => {
-                        toast.success(`Welcome, ${name}! Your account has been created.`);
-                        e.target.reset();
+        setLoading(true);
+        try {
+            const result = await signUpUser(email, password);
+            const user = result.user;
+            await updateProfile(user, { displayName: name, photoURL });
+            toast.success(`Welcome, ${name}! Your account has been created.`);
+            e.target.reset();
 
-                        
-                        setTimeout(() => {
-                            navigate("/login");
-                        }, 4000);
-                    })
-                    .catch((error) => {
-                        toast.error("Failed to update profile: " + error.message);
-                    });
-            })
-            .catch((error) => {
-                toast.error("Registration failed: " + error.message);
-            });
+            setTimeout(() => {
+                navigate("/");
+            }, 3000);
+        } catch (error) {
+            toast.error("Registration failed: " + error.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleGoogleLogin = () => {
@@ -124,8 +121,13 @@ const Register = () => {
                             </span>
                         </div>
                         <div className="form-control">
-                            <button className="btn bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md  text-white font-semibold w-full">
-                                Register
+                            <button
+                                type="submit"
+                                className={`btn bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md text-white font-semibold w-full ${loading ? "opacity-50 cursor-not-allowed" : ""
+                                    }`}
+                                disabled={loading}
+                            >
+                                {loading ? "Registering..." : "Register"}
                             </button>
                         </div>
                     </form>

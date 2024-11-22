@@ -11,7 +11,7 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-
+    
         signInUser(email, password)
             .then((result) => {
                 console.log("User signed in:", result.user);
@@ -21,7 +21,17 @@ const Login = () => {
             })
             .catch((error) => {
                 console.error("Login error:", error.message);
-                toast.error("Login failed. Please check your credentials.");
+    
+               
+                if (error.code === 'auth/invalid-email') {
+                    toast.error("Invalid email format. Please check your email address.");
+                } else if (error.code === 'auth/user-not-found') {
+                    toast.error("No user found with this email. Please check the email address.");
+                } else if (error.code === 'auth/wrong-password') {
+                    toast.error("Incorrect password. Please try again.");
+                } else {
+                    toast.error("Login failed. Please check your credentials.");
+                }
             });
     };
 
