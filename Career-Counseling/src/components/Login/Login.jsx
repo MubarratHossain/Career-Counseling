@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../Authprovider/Authprovider";
-import { toast } from "react-toastify"; 
+import { toast } from "react-toastify";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -17,11 +17,11 @@ const Login = () => {
                 console.log("User signed in:", result.user);
                 e.target.reset();
                 navigate('/');
-                toast.success("Login successful!"); 
+                toast.success("Login successful!");
             })
             .catch((error) => {
                 console.error("Login error:", error.message);
-                toast.error("Login failed. Please check your credentials."); 
+                toast.error("Login failed. Please check your credentials.");
             });
     };
 
@@ -30,13 +30,19 @@ const Login = () => {
             .then((result) => {
                 console.log("Google sign-in:", result.user);
                 navigate('/');
-                toast.success("Google login successful!"); 
+                toast.success("Google login successful!");
             })
             .catch((error) => {
                 console.error("Google sign-in error:", error.message);
-                toast.error("Google login failed. Please try again."); 
+                toast.error("Google login failed. Please try again.");
             });
     };
+    const handleForgotPassword = () => {
+        const emailInput = document.querySelector('input[name="email"]');
+        const email = emailInput?.value || '';
+        navigate(`/forgot-password?email=${encodeURIComponent(email)}`);
+    };
+    
 
     return (
         <div className="hero bg-gray-100 min-h-screen flex items-center justify-center">
@@ -71,7 +77,11 @@ const Login = () => {
                                 required
                             />
                             <label className="label">
-                                <a href="#" className="label-text-alt text-blue-500 hover:underline">
+                                <a
+                                    
+                                    onClick={handleForgotPassword}
+                                    className="label-text-alt text-blue-500 hover:underline"
+                                >
                                     Forgot password?
                                 </a>
                             </label>

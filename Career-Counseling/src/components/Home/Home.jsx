@@ -4,6 +4,8 @@ import { FaRegTimesCircle, FaUserTie } from "react-icons/fa";
 import { AiOutlineSchedule } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Banner from "../Banner/Banner";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
     const { services, consultants, clients } = useLoaderData();
@@ -18,14 +20,14 @@ const Home = () => {
 
     useEffect(() => {
         const hasModalShown = localStorage.getItem('hasModalShown');
-        
-        
+
+
         if (!hasModalShown) {
             const timer = setTimeout(() => {
                 if (scrollPosition > 600) {
                     setShowModal(true);
 
-                    
+
                     localStorage.setItem('hasModalShown', 'true');
 
                     setTimeout(() => {
@@ -49,6 +51,14 @@ const Home = () => {
     const closeModal = () => {
         setShowModal(false);
     };
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // Animation duration in milliseconds
+            offset: 120,    // Offset from the element
+            easing: "ease-in-out", // Easing style
+            once: true, // Whether animation should happen only once - while scrolling down
+        });
+    }, []);
 
     return (
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-8  mt-[120px] rounded-lg">
@@ -80,10 +90,16 @@ const Home = () => {
                 </div>
             )}
 
-            <h3 className="text-3xl font-bold text-center mt-8  text-black">Services</h3>
-            <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-12">
+            <h3 className="text-3xl font-bold text-center mt-8 text-black">Services</h3>
+            <div
+                className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-12"
+                data-aos="fade-up"
+            >
                 {services.map((service) => (
-                    <div key={service.id} className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <div
+                        key={service.id}
+                        className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                    >
                         <img
                             src={service.image}
                             alt={service.name}
@@ -91,7 +107,6 @@ const Home = () => {
                         />
                         <h4 className="text-xl font-bold mb-2 text-gray-800">{service.name}</h4>
                         <p className="text-gray-700 text-sm mb-4">{service.description}</p>
-
                         <Link
                             to={`/details/${service.id}`}
                             className="inline-block bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-orange-500 hover:to-pink-600 transition-all duration-200 shadow-md"
@@ -102,7 +117,8 @@ const Home = () => {
                 ))}
             </div>
 
-            <div ref={bookConsultantRef} className="py-12">
+
+            <div ref={bookConsultantRef} className="py-12" data-aos="zoom-in">
                 <h3 className="text-3xl font-bold text-center mb-6">Book a Consultant</h3>
                 <p className="text-center mb-8 text-gray-600">
                     Choose a consultant and book a session with them.
@@ -129,9 +145,9 @@ const Home = () => {
                             <p className="text-gray-700 text-sm sm:text-base mb-4">
                                 {consultant.expertise}
                             </p>
-                            <Link to={`/bookNow/${consultant.id}`}
+                            <Link
+                                to={`/bookNow/${consultant.id}`}
                                 className="flex items-center justify-center bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-orange-500 hover:to-pink-600 transition-all duration-200 space-x-2 shadow-md"
-                               
                             >
                                 <AiOutlineSchedule className="text-xl" />
                                 <span>Book Now</span>
@@ -140,8 +156,7 @@ const Home = () => {
                     ))}
                 </div>
             </div>
-
-            <div className="py-12 bg-gray-50">
+            <div className="py-12 bg-gray-50" data-aos="fade-right">
                 <h3 className="text-4xl font-extrabold text-center mb-10 text-gray-900">
                     Our Happy Clients
                 </h3>
@@ -171,6 +186,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+
         </div>
     );
 };

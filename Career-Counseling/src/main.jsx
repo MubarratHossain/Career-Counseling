@@ -25,6 +25,7 @@ import Details from './components/Details/Details.jsx';
 import Banner from './components/Banner/Banner.jsx';
 import PrivateRoute from './components/Privateroute/PrivateRoute.jsx';
 import BookNow from './components/BookNow/BookNow.jsx';
+import ForgetPassword from './components/ForgetPassword/ForgetPassword.jsx';
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,9 @@ const router = createBrowserRouter([
       { path: '/contact', element: <Contact></Contact> },
       { path: '/login', element: <Login></Login> },
       { path: '/register', element: <Register></Register> },
+      { path: '/forgot-password', element: <ForgetPassword></ForgetPassword> },
+      
+
       {
          path:"/bookNow/:id",
          element:<PrivateRoute><BookNow></BookNow></PrivateRoute>,
