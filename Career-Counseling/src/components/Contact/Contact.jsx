@@ -1,10 +1,14 @@
 
 
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   return (
     <section className="bg-gray-100 py-16 px-6 md:px-16">
+      <Helmet>
+      <title>JobZen-Contacts</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto text-center">
         <h1 className="text-4xl font-bold text-gray-800 mb-8">Contact Us</h1>
         <p className="text-lg text-gray-600 mb-12">

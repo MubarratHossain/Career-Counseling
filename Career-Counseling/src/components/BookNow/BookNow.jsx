@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const BookNow = () => {
   const consultant = useLoaderData();
@@ -17,6 +18,15 @@ const BookNow = () => {
 
   return (
     <div className="container mx-auto px-4 py-6">
+         <Helmet>
+        <title>Book a Consultation - {consultant.name}</title>
+        <meta name="description" content={`Book a consultation with ${consultant.name}, an expert in ${consultant.expertise}. Availability: ${consultant.availability}.`} />
+        <meta name="keywords" content={`${consultant.name}, consultation, expert, ${consultant.expertise}, book a consultation`} />
+        <meta property="og:title" content={`Book a Consultation - ${consultant.name}`} />
+        <meta property="og:description" content={`Book a consultation with ${consultant.name}, an expert in ${consultant.expertise}.`} />
+        <meta property="og:image" content={consultant.img} />
+        <meta property="og:url" content={window.location.href} />
+      </Helmet>
       <h1 className="text-3xl font-bold text-center mb-6">Book a Consultation</h1>
 
       <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">

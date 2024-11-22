@@ -2,15 +2,15 @@
     {
       "id": 1,
       "name": "John Doe",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://i.postimg.cc/85hK591v/8.webp",
       "feedback": "The services provided were exceptional! Highly recommend to anyone looking for professional assistance.",
       "rating": 5,
       "designation": "CEO, TechCorp"
     },
     {
       "id": 2,
-      "name": "Jane Smith",
-      "image": "https://via.placeholder.com/150",
+      "name": "Shakib Hossain",
+      "image": "https://i.postimg.cc/7ZkLJTMT/15.webp",
       "feedback": "Amazing experience! The consultants were very knowledgeable and guided me perfectly.",
       "rating": 4.8,
       "designation": "Founder, GreenWorld"
@@ -18,15 +18,15 @@
     {
       "id": 3,
       "name": "Samuel Green",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://i.postimg.cc/yY6Q1L2J/4.webp",
       "feedback": "I was very impressed by the team's expertise. They exceeded all my expectations!",
       "rating": 4.9,
       "designation": "Manager, BrightFuture Inc."
     },
     {
       "id": 4,
-      "name": "Emily White",
-      "image": "https://via.placeholder.com/150",
+      "name": "Rony",
+      "image": "https://i.postimg.cc/xdjTtDZf/14.webp",
       "feedback": "Very professional and reliable service. I felt supported throughout the process.",
       "rating": 4.7,
       "designation": "Director, Visionary Solutions"
@@ -34,7 +34,7 @@
     {
       "id": 5,
       "name": "Michael Brown",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://i.postimg.cc/9MKmm4Q0/13.webp",
       "feedback": "Their commitment to quality is unmatched. I'll definitely work with them again!",
       "rating": 5,
       "designation": "Entrepreneur"

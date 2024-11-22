@@ -1,8 +1,12 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
   return (
     <section className="bg-gray-50 py-16 px-6 md:px-16">
+       <Helmet>
+      <title>JobZen-About</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto text-center">
         <h1 className="text-4xl font-bold text-gray-800 mb-6">About</h1>
         <p className="text-lg text-gray-600 mb-4">
@@ -15,7 +19,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* Marquee News Section */}
+        
         <div className="bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 py-4 text-white">
           <div className="overflow-hidden">
             <div className="whitespace-nowrap animate-marquee">
@@ -26,7 +30,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Additional Information Section */}
+        
         <div className="max-w-3xl mx-auto mt-12 px-6">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Why Choose Us?</h2>
           <p className="text-lg text-gray-600 mb-6">

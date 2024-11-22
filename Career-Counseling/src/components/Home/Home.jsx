@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Banner from "../Banner/Banner";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const { services, consultants, clients } = useLoaderData();
@@ -53,15 +54,25 @@ const Home = () => {
     };
     useEffect(() => {
         AOS.init({
-            duration: 1000, // Animation duration in milliseconds
-            offset: 120,    // Offset from the element
-            easing: "ease-in-out", // Easing style
-            once: true, // Whether animation should happen only once - while scrolling down
+            duration: 1000, 
+            offset: 120,    
+            easing: "ease-in-out", 
+            once: true, 
         });
     }, []);
 
     return (
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-8  mt-[120px] rounded-lg">
+            <Helmet>
+                <title>JobZen - Home</title>
+                <meta name="description" content="Welcome to JobZen, where you can find expert consultants and services to advance your career." />
+                <meta name="robots" content="index, follow" />
+                <meta property="og:title" content="JobZen - Home" />
+                <meta property="og:description" content="Explore services, book consultants, and read feedback from our happy clients." />
+                <meta property="og:image" content="URL_TO_IMAGE" />
+                <meta property="og:url" content="URL_TO_THIS_PAGE" />
+            </Helmet>
+            
             <Banner></Banner>
 
             {showModal && (

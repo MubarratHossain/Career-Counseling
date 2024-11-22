@@ -26,6 +26,8 @@ import Banner from './components/Banner/Banner.jsx';
 import PrivateRoute from './components/Privateroute/PrivateRoute.jsx';
 import BookNow from './components/BookNow/BookNow.jsx';
 import ForgetPassword from './components/ForgetPassword/ForgetPassword.jsx';
+import { HelmetProvider } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
@@ -106,9 +108,15 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Authprovider>
+    <HelmetProvider>
+      <Helmet>
+        <title>JobZen</title>
+      </Helmet>
+      <Authprovider>
       <RouterProvider router={router} />
       <ToastContainer position="top-center" autoClose={3000} hideProgressBar={false} />
     </Authprovider>
+    </HelmetProvider>
+
   </StrictMode>,
 );

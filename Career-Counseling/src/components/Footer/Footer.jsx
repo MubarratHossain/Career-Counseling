@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="footer bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 text-white p-10 rounded-lg mb-2 max-w-[95%] mx-auto ">
+    <footer className="footer bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 text-white p-10 rounded-lg mb-2 max-w-[95%] mx-auto animate-shake">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
         <nav className="flex flex-col">

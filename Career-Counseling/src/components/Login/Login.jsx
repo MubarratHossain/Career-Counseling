@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../Authprovider/Authprovider";
 import { toast } from "react-toastify";
-
+import { Helmet } from "react-helmet-async";
 const Login = () => {
     const navigate = useNavigate();
     const { signInUser, signInWithGoogle } = useContext(authContext);
@@ -56,6 +56,13 @@ const Login = () => {
 
     return (
         <div className="hero bg-gray-100 min-h-screen flex items-center justify-center">
+            <Helmet>
+                <title>Login - My Application</title>
+                <meta name="description" content="Login to your account to access all features." />
+                <meta name="keywords" content="login, user login, authentication" />
+                <meta name="author" content="My Application Team" />
+            </Helmet>
+
             <div className="hero-content flex-col max-w-md w-full bg-white rounded-lg shadow-lg p-8">
                 <div className="text-center mb-6">
                     <h1 className="text-4xl font-bold text-gray-800">Welcome Back!</h1>

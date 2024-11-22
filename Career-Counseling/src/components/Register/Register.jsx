@@ -5,6 +5,7 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import { authContext } from "../Authprovider/Authprovider";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const { signUpUser, signInWithGoogle } = useContext(authContext);
@@ -58,6 +59,12 @@ const Register = () => {
 
     return (
         <div className="hero bg-gray-100 min-h-screen flex items-center justify-center">
+             <Helmet>
+                <title>Register - My Application</title>
+                <meta name="description" content="Create a new account and join our community." />
+                <meta name="keywords" content="register, sign up, create account" />
+                <meta name="author" content="My Application Team" />
+            </Helmet>
             <div className="hero-content flex-col max-w-md w-full bg-white rounded-lg shadow-lg p-8">
                 <ToastContainer position="top-center" autoClose={2000} />
                 <div className="text-center mb-6">

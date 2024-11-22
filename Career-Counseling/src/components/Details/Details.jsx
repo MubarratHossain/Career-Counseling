@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaDollarSign, FaUser, FaCalendarAlt, FaStar, FaComment, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
-
+import { Helmet } from 'react-helmet-async';
 const Details = () => {
     const service = useLoaderData();
     const [comment, setComment] = useState("");
@@ -28,6 +28,19 @@ const Details = () => {
 
     return (
         <div className="max-w-5xl mx-auto mt-4 mb-4 p-6 bg-gradient-to-r from-white via-orange-100 to-white shadow-lg rounded-lg">
+            <Helmet>
+                <title>JobZen - {name}</title>
+                <meta name="description" content={`Explore the details of the ${name} service at JobZen. Get insights on pricing, counselor, duration, rating, and reviews.`} />
+                <meta name="keywords" content={`${name}, service details, JobZen, counselor, reviews, career path`} />
+                <meta property="og:title" content={`JobZen - ${name}`} />
+                <meta property="og:description" content={`Explore the details of the ${name} service at JobZen. Get insights on pricing, counselor, duration, rating, and reviews.`} />
+                <meta property="og:image" content={image} />
+                <meta property="og:url" content={window.location.href} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={`JobZen - ${name}`} />
+                <meta name="twitter:description" content={`Explore the details of the ${name} service at JobZen. Get insights on pricing, counselor, duration, rating, and reviews.`} />
+                <meta name="twitter:image" content={image} />
+            </Helmet>
             <div className="flex flex-col lg:flex-row">
                 <div className="w-full lg:w-1/3">
                     <img

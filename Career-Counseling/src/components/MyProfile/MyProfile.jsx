@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { authContext } from '../Authprovider/Authprovider';
 import { toast } from 'react-toastify';
 import { FaUserEdit, FaEnvelope, FaCamera } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 
 const MyProfile = () => {
     const { user, updateUserProfile } = useContext(authContext);
@@ -31,6 +32,15 @@ const MyProfile = () => {
 
     return (
         <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
+              <Helmet>
+                <title>My Profile - {user?.displayName || 'User'}</title>
+                <meta name="description" content={`Edit profile for ${user?.displayName || 'user'}. Update your name and profile picture.`} />
+                <meta name="keywords" content="profile, edit profile, user profile, update profile" />
+                <meta property="og:title" content={`My Profile - ${user?.displayName || 'User'}`} />
+                <meta property="og:description" content={`Edit your profile, update your name and photo.`} />
+                <meta property="og:image" content={user?.photoURL || '/default-profile-pic.jpg'} />
+                <meta property="og:url" content={window.location.href} />
+            </Helmet>
             <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-8">
                 <h1 className="text-4xl font-bold text-center text-gray-800">My Profile</h1>
                 <div className="mt-6 bg-gray-100 p-6 rounded-lg shadow-md">

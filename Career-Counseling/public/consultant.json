@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "name": "Ava Johnson",
+    "name": "Harry Mack",
     "expertise": "Career Development & Leadership",
     "experience": "10+ years",
-    "bio": "Ava specializes in career development strategies and leadership coaching, helping professionals transition to higher roles.",
+    "bio": "Harry  specializes in career development strategies and leadership coaching, helping professionals transition to higher roles.",
     "rating": 4.9,
     "contact": {
-      "email": "ava.johnson@careerpro.com",
+      "email": "harry.johnson@careerpro.com",
       "phone": "+1-555-123-4567"
     },
     "location": "New York, USA",
     "availability": "Monday - Friday, 9 AM - 5 PM",
-    "img": "path/to/ava-johnson-image.jpg"
+    "img": "https://i.postimg.cc/26Mr8dJB/ben2.webp"
   },
   {
     "id": 2,
@@ -27,22 +27,22 @@
     },
     "location": "San Francisco, USA",
     "availability": "Monday - Thursday, 10 AM - 4 PM",
-    "img": "path/to/liam-parker-image.jpg"
+    "img": "https://i.postimg.cc/Bb4SzrYQ/premium-photo-1661508620175-3ae20da61cda.jpg"
   },
   {
     "id": 3,
-    "name": "Sophia Martinez",
+    "name": "Jacky Martinez",
     "expertise": "Corporate Growth & Strategy",
     "experience": "12 years",
-    "bio": "Sophia brings a strategic approach to career counseling, focusing on corporate growth, personal branding, and executive coaching.",
+    "bio": "Jacky brings a strategic approach to career counseling, focusing on corporate growth, personal branding, and executive coaching.",
     "rating": 5.0,
     "contact": {
-      "email": "sophia.martinez@corpcoach.com",
+      "email": "Jacky.martinez@corpcoach.com",
       "phone": "+1-555-345-6789"
     },
     "location": "Los Angeles, USA",
     "availability": "Tuesday - Friday, 8 AM - 6 PM",
-    "img": "path/to/sophia-martinez-image.jpg"
+    "img": "https://i.postimg.cc/X7NNk0Bs/images.jpg"
   },
   {
     "id": 4,
@@ -57,22 +57,22 @@
     },
     "location": "Chicago, USA",
     "availability": "Monday - Friday, 9 AM - 4 PM",
-    "img": "path/to/ethan-lee-image.jpg"
+    "img": "https://i.postimg.cc/kGTmpBRf/images.jpg"
   },
   {
     "id": 5,
-    "name": "Mia Davis",
+    "name": " Davis",
     "expertise": "Personal Branding & Networking",
     "experience": "7 years",
-    "bio": "Mia specializes in building personal brands and teaching professionals how to network effectively to advance in their careers.",
+    "bio": "Davis specializes in building personal brands and teaching professionals how to network effectively to advance in their careers.",
     "rating": 4.8,
     "contact": {
-      "email": "mia.davis@brandcoach.com",
+      "email": "hero.davis@brandcoach.com",
       "phone": "+1-555-567-8901"
     },
     "location": "Miami, USA",
     "availability": "Monday - Wednesday, 10 AM - 3 PM",
-    "img": "path/to/mia-davis-image.jpg"
+    "img": "https://i.postimg.cc/3w5P9gb3/images.jpg"
   },
   {
     "id": 6,
@@ -87,14 +87,14 @@
     },
     "location": "Austin, USA",
     "availability": "Tuesday - Saturday, 11 AM - 5 PM",
-    "img": "path/to/noah-wilson-image.jpg"
+    "img": "https://i.postimg.cc/KzQwZCcY/images.jpg"
   },
   {
     "id": 7,
-    "name": "Olivia Smith",
+    "name": " Smith",
     "expertise": "Soft Skills & Communication Coaching",
     "experience": "9 years",
-    "bio": "Olivia provides coaching for soft skills development, including communication, time management, and teamwork, for professional growth.",
+    "bio": "Smith provides coaching for soft skills development, including communication, time management, and teamwork, for professional growth.",
     "rating": 4.9,
     "contact": {
       "email": "olivia.smith@softskillscoach.com",
@@ -102,7 +102,7 @@
     },
     "location": "Boston, USA",
     "availability": "Monday - Friday, 8 AM - 5 PM",
-    "img": "path/to/olivia-smith-image.jpg"
+    "img": "https://i.postimg.cc/KcqwCXsq/images.jpgs"
   },
   {
     "id": 8,
@@ -117,22 +117,22 @@
     },
     "location": "Seattle, USA",
     "availability": "Wednesday - Sunday, 9 AM - 3 PM",
-    "img": "path/to/james-brown-image.jpg"
+    "img": "https://i.postimg.cc/gjT7hRZF/download.jpg"
   },
   {
     "id": 9,
-    "name": "Charlotte Green",
+    "name": "Mason Green",
     "expertise": "Job Search Strategy & Coaching",
     "experience": "10 years",
-    "bio": "Charlotte helps job seekers with tailored job search strategies, interview preparation, and finding job opportunities that match their skills.",
+    "bio": "Mason helps job seekers with tailored job search strategies, interview preparation, and finding job opportunities that match their skills.",
     "rating": 4.8,
     "contact": {
-      "email": "charlotte.green@jobcoach.com",
+      "email": "Mason.green@jobcoach.com",
       "phone": "+1-555-901-2345"
     },
     "location": "New York, USA",
     "availability": "Monday - Friday, 9 AM - 6 PM",
-    "img": "path/to/charlotte-green-image.jpg"
+    "img": "https://i.postimg.cc/zXm1MGLk/images.jpg"
   },
   {
     "id": 10,
@@ -147,6 +147,6 @@
     },
     "location": "Washington, D.C., USA",
     "availability": "Monday - Thursday, 9 AM - 4 PM",
-    "img": "path/to/jack-taylor-image.jpg"
+    "img": "https://i.postimg.cc/gkvPPb8b/images.jpg"
   }
 ]
