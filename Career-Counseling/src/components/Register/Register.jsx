@@ -141,7 +141,7 @@ const Register = () => {
                             alt="Google Logo"
                             className="h-6 mr-3"
                         />
-                        <span className="text-gray-600 font-medium">Sign in with Google</span>
+                        <span className="text-gray-600 font-medium">Sign up with Google</span>
                     </button>
                 </div>
             </div>

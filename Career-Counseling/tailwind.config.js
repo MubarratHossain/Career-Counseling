@@ -12,10 +12,14 @@ export default {
         'slide-fade-in': 'slideIn 0.7s ease-out',
         'shake': 'shake 0.5s infinite',
         'marquee': 'marquee 15s linear infinite',
+        'flicker': 'flicker 1s infinite',  
+        'gradient-animation': 'gradient 5s ease infinite',  // New gradient animation
       },
       colors: {
         darkblue: '#003366', 
         darkerblue: '#001f33', 
+        gradientStart: '#FF7F50',  // Coral color
+        gradientEnd: '#32CD32',    // Lime green color
       },
       keyframes: {
         backgroundAnimation: {
@@ -48,6 +52,19 @@ export default {
         marquee: {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(-100%)' },
+        },
+        flicker: {
+          '0%': { color: 'rgb(255, 0, 127)' },  
+          '25%': { color: 'rgb(255, 102, 0)' }, 
+          '50%': { color: 'rgb(0, 0, 0)' },     
+          '75%': { color: 'rgb(128, 128, 0)' }, 
+          '100%': { color: 'rgb(255, 0, 0)' }, 
+        },
+        // New gradient animation keyframes
+        gradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
         },
       },
     },

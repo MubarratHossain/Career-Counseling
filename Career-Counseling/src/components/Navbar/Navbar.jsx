@@ -1,12 +1,11 @@
 import { useContext, useState } from 'react';
-import { FaHome, FaInfoCircle, FaBriefcase, FaPhoneAlt, FaUser, FaUserPlus } from 'react-icons/fa';
+import { FaHome, FaInfoCircle, FaBriefcase, FaPhoneAlt, FaUser, FaUserPlus, FaUserAlt } from 'react-icons/fa';
 import { NavLink, useLocation } from 'react-router-dom';
 import { authContext } from '../Authprovider/Authprovider';
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(authContext);
     const location = useLocation();
-    const isHomePage = location.pathname === '/';
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggleDropdown = () => {
@@ -19,10 +18,11 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 shadow-lg mt-2 rounded-lg">
+            <div className="navbar bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 shadow-lg mt-2 rounded-lg px-2 sm:px-4 md:px-8">
                 <div className="navbar-start">
-                    <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+
+                    <div className="dropdown lg:hidden">
+                        <button onClick={toggleDropdown} className="btn btn-ghost">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5"
@@ -37,22 +37,26 @@ const Navbar = () => {
                                     d="M4 6h16M4 12h8m-8 6h16"
                                 />
                             </svg>
-                        </div>
-                        <ul
-                            tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-                        >
-                            <li><NavLink to="/">Home</NavLink></li>
-                            <li><NavLink to="/about">About</NavLink></li>
-                            {user && <li><NavLink to="/my-profile">My Profile</NavLink></li>}
-                            <li><NavLink to="/contact">Contact</NavLink></li>
-                        </ul>
+                        </button>
+                        {dropdownOpen && (
+                            <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                <li><NavLink to="/">Home</NavLink></li>
+                                <li><NavLink to="/about">About</NavLink></li>
+                                {user && <li><NavLink to="/my-profile">My Profile</NavLink></li>}
+                                <li><NavLink to="/contact">Contact</NavLink></li>
+                            </ul>
+                        )}
                     </div>
-                    <a className="btn btn-ghost text-xl flex items-center space-x-2 lg:flex md:flex hidden">
-                        <FaBriefcase className="text-3xl text-white" />
-                        <span>Career Counseling</span>
+
+
+                    <a className="btn btn-ghost  text-[16px] flex items-center  lg:flex md:flex ">
+                        <FaBriefcase className="text-xl text-white animate-bounce" />
+                        <span className="animate-flicker">JobZen</span>
                     </a>
+
+
                 </div>
+
 
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -80,7 +84,7 @@ const Navbar = () => {
                                     to="/my-profile"
                                     className="text-base text-white hover:text-white hover:bg-[#002400] p-2 rounded-lg"
                                 >
-                                    <FaBriefcase className="inline mr-2 text-white" />
+                                    <FaUserAlt className="inline mr-2 text-white" />
                                     My Profile
                                 </NavLink>
                             </li>
@@ -97,20 +101,21 @@ const Navbar = () => {
                     </ul>
                 </div>
 
+
                 <div className="navbar-end flex items-center space-x-4">
+
                     {!user ? (
                         <>
                             <NavLink
                                 to="/login"
-                                className={`flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md rounded-lg text-white ${!user ? 'animate-shake' : ''
-                                    }`}
+                                className="flex items-center space-x-2 text-xs sm:text-sm lg:text-base py-1 sm:py-2 px-2 sm:px-4 bg-gradient-to-r from-orange-300 to-orange-500 hover:from-orange-400 hover:to-orange-600 shadow-md rounded-lg text-white"
                             >
                                 <FaUser className="mr-2 text-white" />
                                 Login
                             </NavLink>
                             <NavLink
                                 to="/register"
-                                className="flex items-center space-x-2 text-sm lg:text-base hidden lg:flex py-2 px-4 rounded-lg bg-gradient-to-r from-orange-300 to-orange-500 text-white hover:from-orange-400 hover:to-orange-600 shadow-md"
+                                className="flex items-center space-x-2 text-xs sm:text-sm lg:text-base py-1 sm:py-2 px-2 sm:px-4 rounded-lg bg-gradient-to-r from-orange-300 to-orange-500 text-white hover:from-orange-400 hover:to-orange-600 shadow-md"
                             >
                                 <FaUserPlus className="mr-2 text-white" />
                                 Sign Up
@@ -134,6 +139,8 @@ const Navbar = () => {
                             </button>
                         </div>
                     )}
+
+
                 </div>
             </div>
         </div>
