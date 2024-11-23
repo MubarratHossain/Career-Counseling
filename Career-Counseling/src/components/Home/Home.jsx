@@ -54,10 +54,10 @@ const Home = () => {
     };
     useEffect(() => {
         AOS.init({
-            duration: 1000, 
-            offset: 120,    
-            easing: "ease-in-out", 
-            once: true, 
+            duration: 1000,
+            offset: 120,
+            easing: "ease-in-out",
+            once: true,
         });
     }, []);
 
@@ -72,7 +72,7 @@ const Home = () => {
                 <meta property="og:image" content="URL_TO_IMAGE" />
                 <meta property="og:url" content="URL_TO_THIS_PAGE" />
             </Helmet>
-            
+
             <Banner></Banner>
 
             {showModal && (
@@ -111,11 +111,13 @@ const Home = () => {
                         key={service.id}
                         className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
                     >
-                        <img
-                            src={service.image}
-                            alt={service.name}
-                            className="w-full h-40 object-cover rounded-lg mb-4"
-                        />
+                        <div className="relative h-56 sm:h-64 lg:h-72 overflow-hidden rounded-lg mb-4">
+                            <img
+                                src={service.image}
+                                alt={service.name}
+                                className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-110"
+                            />
+                        </div>
                         <h4 className="text-xl font-bold mb-2 text-gray-800">{service.name}</h4>
                         <p className="text-gray-700 text-sm mb-4">{service.description}</p>
                         <Link
@@ -127,6 +129,7 @@ const Home = () => {
                     </div>
                 ))}
             </div>
+
 
 
             <div ref={bookConsultantRef} className="py-12" data-aos="zoom-in">
@@ -144,11 +147,13 @@ const Home = () => {
                                 background: "linear-gradient(135deg, #FFDEE9 0%, #B5FFFC 100%)",
                             }}
                         >
-                            <img
-                                src={consultant.img}
-                                alt={consultant.name}
-                                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mb-4 border-4 border-white shadow-lg"
-                            />
+                            <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                                <img
+                                    src={consultant.img}
+                                    alt={consultant.name}
+                                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                                />
+                            </div>
                             <h4 className="text-lg sm:text-xl font-bold mb-2 text-gray-800 flex items-center space-x-2">
                                 <span>{consultant.name}</span>
                                 <FaUserTie className="text-orange-500" />
@@ -167,6 +172,7 @@ const Home = () => {
                     ))}
                 </div>
             </div>
+
             <div className="py-12 bg-gray-50" data-aos="fade-right">
                 <h3 className="text-4xl font-extrabold text-center mb-10 text-gray-900">
                     Our Happy Clients

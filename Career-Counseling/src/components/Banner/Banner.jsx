@@ -7,8 +7,8 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 
 import BannerImage1 from './background.png';
-import BannerImage2 from './background.png';
-import BannerImage3 from './background.png';
+import BannerImage2 from './career1234.jpg';
+import BannerImage3 from './career123.jpg';
 
 
 const Banner = () => {

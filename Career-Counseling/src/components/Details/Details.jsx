@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaDollarSign, FaUser, FaCalendarAlt, FaStar, FaComment, FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
+
 const Details = () => {
     const service = useLoaderData();
     const [comment, setComment] = useState("");
     const [commentsList, setCommentsList] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
-    
     const { name, category, price, counselor, duration, description, rating, reviews, image } = service;
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to top when component is mounted or reloaded
+    }, []);
 
     const handleCommentSubmit = () => {
         if (comment.trim()) {
@@ -27,7 +31,7 @@ const Details = () => {
     };
 
     return (
-        <div className="max-w-5xl mx-auto mt-4 mb-4 p-6 bg-gradient-to-r from-white via-orange-100 to-white shadow-lg rounded-lg">
+        <div className="max-w-[80%] mx-auto mt-4 mb-4 p-6 bg-gradient-to-r from-white via-orange-100 to-white shadow-lg rounded-lg">
             <Helmet>
                 <title>JobZen - {name}</title>
                 <meta name="description" content={`Explore the details of the ${name} service at JobZen. Get insights on pricing, counselor, duration, rating, and reviews.`} />
@@ -44,8 +48,8 @@ const Details = () => {
             <div className="flex flex-col lg:flex-row">
                 <div className="w-full lg:w-1/3">
                     <img
-                        src={image}  
-                        alt={name}    
+                        src={image}
+                        alt={name}
                         className="w-full h-96 object-cover rounded-lg shadow-md"
                     />
                 </div>
@@ -84,27 +88,27 @@ const Details = () => {
             </div>
 
             <div className="flex justify-center mt-8">
-                <button 
+                <button
                     onClick={handleModalOpen}
-                    className="btn btn-lg bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white hover:bg-gradient-to-l hover:from-blue-500 hover:to-green-500 shadow-lg rounded-full flex items-center justify-center"
+                    className="btn btn-md bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white hover:bg-gradient-to-l hover:from-blue-500 hover:to-green-500 shadow-lg rounded-full flex items-center justify-center"
                 >
                     <span className="mr-2">Select Your Dream Path</span>
-                    <FaArrowRight className="ml-2 text-white text-lg" /> 
+                    <FaArrowRight className="ml-2 text-white text-lg" />
                 </button>
             </div>
 
             <div className="mt-6">
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4">Leave a Comment or Feedback</h3>
                 <div className="flex flex-col">
-                    <input 
-                        type="text" 
-                        placeholder="Write your comment or feedback" 
+                    <input
+                        type="text"
+                        placeholder="Write your comment or feedback"
                         className="input input-bordered w-full mb-2"
                         value={comment}
-                        onChange={(e) => setComment(e.target.value)} 
+                        onChange={(e) => setComment(e.target.value)}
                     />
-                    <button 
-                        onClick={handleCommentSubmit} 
+                    <button
+                        onClick={handleCommentSubmit}
                         className="btn btn-outline text-black w-full"
                     >
                         Submit Comment/Feedback
@@ -132,8 +136,8 @@ const Details = () => {
                         </p>
                         <p className="text-gray-600 mb-6">We're excited to help you on your journey. Please wait while we prepare your next steps.</p>
                         <div className="flex justify-end">
-                            <button 
-                                onClick={handleModalClose} 
+                            <button
+                                onClick={handleModalClose}
                                 className="btn btn-outline text-black"
                             >
                                 Close

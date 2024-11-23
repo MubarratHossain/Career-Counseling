@@ -13,13 +13,13 @@ export default {
         'shake': 'shake 0.5s infinite',
         'marquee': 'marquee 15s linear infinite',
         'flicker': 'flicker 1s infinite',  
-        'gradient-animation': 'gradient 5s ease infinite',  // New gradient animation
+        'gradient-animation': 'gradient 5s ease infinite',  
       },
       colors: {
         darkblue: '#003366', 
         darkerblue: '#001f33', 
-        gradientStart: '#FF7F50',  // Coral color
-        gradientEnd: '#32CD32',    // Lime green color
+        gradientStart: '#FF7F50',  
+        gradientEnd: '#32CD32',   
       },
       keyframes: {
         backgroundAnimation: {
@@ -60,7 +60,7 @@ export default {
           '75%': { color: 'rgb(128, 128, 0)' }, 
           '100%': { color: 'rgb(255, 0, 0)' }, 
         },
-        // New gradient animation keyframes
+       
         gradient: {
           '0%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },

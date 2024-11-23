@@ -41,7 +41,7 @@ const Authprovider = ({ children }) => {
         updateUserProfile,  
     }; 
     if (loading) {
-        return <span className="loading loading-ring loading-lg"></span>;  // You can show a spinner or loading state here
+        return <span className="loading loading-ring loading-lg"></span>;  
     }
 
     return (

@@ -78,7 +78,7 @@ const router = createBrowserRouter([
          path:"/bookNow/:id",
          element:<PrivateRoute><BookNow></BookNow></PrivateRoute>,
          loader:async({params}) =>{
-          const res =await fetch('../public/consultant.json');
+          const res =await fetch('/consultant.json');
           const data =await res.json();
           const consultant =data.find(consultant=>String(consultant.id) === String(params.id));
           if (!consultant) throw new Error("Consultant not found");
@@ -90,16 +90,14 @@ const router = createBrowserRouter([
         path: "/details/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute>,
         loader:async({params})=>{
-          const res =await fetch('../public/service.json');
+          const res =await fetch('/service.json');
           const data =await res.json();
           const service =data.find(service=>String(service.id) === String(params.id));
           console.log('Fetched service:', service);
           if (!service) throw new Error("Service not found");
           return service;
         },
-        future: {
-          v7_skipActionErrorRevalidation: true 
-        }
+  
       },
       
     ]
